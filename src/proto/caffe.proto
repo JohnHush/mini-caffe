@@ -229,7 +229,16 @@ message LayerParameter {
   optional PriorBoxParameter prior_box_param = 240;
   optional ShuffleChannelParameter shuffle_channel_param = 241;
   optional NormalizeParameter norm_param = 242;
+
+  optional MultiLabelSigmoidCrossEntropyLossParameter
+            multi_label_sigmoid_cross_entropy_loss = 314159;
 }
+
+message MultiLabelSigmoidCrossEntropyLossParameter {
+  repeated float positive_ratio = 1;
+  optional float epsilon = 2 [default = 1];
+}
+
 
 // Message that stores parameters shared by loss layers
 message LossParameter {
